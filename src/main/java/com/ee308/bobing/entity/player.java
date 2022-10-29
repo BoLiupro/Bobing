@@ -26,6 +26,10 @@ public class player implements Serializable {
 
     private String phone;
 
+    /*
+    important!
+    player_id range from 1 ~ player_num instead of 0 ~ player_num-1
+     */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 

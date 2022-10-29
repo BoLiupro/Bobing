@@ -1,6 +1,6 @@
 package com.ee308.bobing.service.Interface;
 
-import com.ee308.bobing.entity.Result;
+import com.ee308.bobing.entity.result;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author liubo
  * @since 2022-10-29
  */
-public interface ResultService extends IService<Result> {
+public interface ResultService extends IService<result> {
 
 }

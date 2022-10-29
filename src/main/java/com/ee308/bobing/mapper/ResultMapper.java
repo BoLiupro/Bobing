@@ -1,7 +1,7 @@
 package com.ee308.bobing.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ee308.bobing.entity.Result;
+import com.ee308.bobing.entity.result;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.ee308.bobing.entity.Result;
  * @author liubo
  * @since 2022-10-29
  */
-public interface ResultMapper extends BaseMapper<Result> {
+public interface ResultMapper extends BaseMapper<result> {
 
 }
