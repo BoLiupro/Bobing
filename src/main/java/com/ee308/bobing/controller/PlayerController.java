@@ -30,9 +30,9 @@ public class PlayerController {
         p.phone=phone;
         players.playerList.add(p);
     }
-
+    @GetMapping("/playerSetting/printPlayers")
     public void printPlayers(){
-        for(player p:players)
+        for(player p:players.playerList)
             System.out.println("name: "+p.name+" phone: "+p.phone );
     }
 }
