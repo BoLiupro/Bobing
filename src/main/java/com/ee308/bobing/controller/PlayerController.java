@@ -8,39 +8,34 @@ package com.ee308.bobing.controller;
  * @since 2022-10-29
  */
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ee308.bobing.entity.player;
-import com.ee308.bobing.entity.players;
+import com.ee308.bobing.mapper.PlayerMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/player")
 public class PlayerController {
 
-    players players=new players();
-    /*
-    web page to set player number
-     */
-    @GetMapping("/Setting")
-    public players playersSet(@RequestParam("playerNum") int playerNum) {
-        players.playerList=new ArrayList<>(playerNum);
-        return players;
-    }
-
+    @Autowired
+    PlayerMapper playerMapper;
     /*
     web page to set every player information
      */
-    @GetMapping("/Setting/player={playerName}")
-    public void playerSet(@PathVariable("playerName") String playerName, @RequestParam("phone") String phone){
+    @GetMapping("/setting")
+    public void setPlayers(@RequestParam("player_name") String player_name, @RequestParam("phone") String phone){
         player p=new player();
-        p.setName(playerName);
+        p.setPlayer_name(player_name);
         p.setPhone(phone);
-        players.playerList.add(p);
+        playerMapper.insert(player_name,phone);
     }
-    @GetMapping("/printPlayers")
-    public void printPlayers(){
-        for(player p:players.playerList)
-            System.out.println("name: "+ p.getName() +" phone: "+ p.getPhone());
+    @GetMapping("/print")
+    public List<player> printPlayers(){
+        QueryWrapper<player> wrapper = new QueryWrapper();
+        wrapper.gt("player_id", 0);
+        return playerMapper.selectList(null);
     }
 }

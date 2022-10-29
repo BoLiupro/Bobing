@@ -8,6 +8,9 @@ package com.ee308.bobing.controller;
  * @since 2022-10-29
  */
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.ee308.bobing.mapper.PlayerMapper;
 import com.ee308.bobing.mapper.ResultMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +31,9 @@ public class GameController {
     @Autowired
     ResultMapper resultMapper;
 
+    @Autowired
+    PlayerMapper playerMapper;
+
     @GetMapping("/chooseStart")//point a starter
     public void chooseStart(@RequestParam("startIndex") int startIndex){
         this.startIndex=startIndex;
@@ -35,7 +41,7 @@ public class GameController {
 
     @GetMapping("/chooseStartByRandom")//point a starter
     public void chooseStartByRandom(@RequestParam("startIndex") int startIndex){
-        int num=players.playerList.size();
+        int num=playerMapper.selectList((Wrapper<player>) new QueryWrapper().gt("player_id",0)).size();
         Random r= new Random(num);
         this.startIndex=startIndex+1;
     }

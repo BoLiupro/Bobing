@@ -17,4 +17,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface PlayerMapper extends BaseMapper<player> {
 
+    void insert(String player_name, String phone);
+    void truncateTable();
+
+
 }
