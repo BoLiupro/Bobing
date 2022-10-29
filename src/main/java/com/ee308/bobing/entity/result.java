@@ -22,7 +22,7 @@ public class result implements Serializable {
 
     private Integer playerId;
 
-    private Integer diceResult;
+    private String diceResult;
 
     private String prizeResult;
 

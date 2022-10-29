@@ -11,7 +11,7 @@ import java.util.Map;
  * @Description 公共结果返回
  */
 @Data
-public class Result {
+public class ResponseResult {
     @ApiModelProperty(value = "是否成功")
     private Boolean success;
 
@@ -28,31 +28,31 @@ public class Result {
      * 构造方法私有化,里面的方法都是静态方法
      * 达到保护属性的作用
      */
-    private Result(){
+    private ResponseResult(){
 
     }
 
     /**
      * 这里是使用链式编程
      */
-    public static Result ok(){
-        Result result = new Result();
+    public static ResponseResult ok(){
+        ResponseResult result = new ResponseResult();
         result.setSuccess(true);
         result.setCode(ResultCode.SUCCESS.getCode());
         result.setMessage(ResultCode.SUCCESS.getMessage());
         return result;
     }
 
-    public static Result error(){
-        Result result = new Result();
+    public static ResponseResult error(){
+        ResponseResult result = new ResponseResult();
         result.setSuccess(false);
         result.setCode(ResultCode.COMMON_FAIL.getCode());
         result.setMessage(ResultCode.COMMON_FAIL.getMessage());
         return result;
     }
 
-    public static Result error(ResultCode resultCode){
-        Result result = new Result();
+    public static ResponseResult error(ResultCode resultCode){
+        ResponseResult result = new ResponseResult();
         result.setSuccess(false);
         result.setCode(resultCode.getCode());
         result.setMessage(resultCode.getMessage());
@@ -64,27 +64,27 @@ public class Result {
      * @param success
      * @return
      */
-    public Result success(Boolean success){
+    public ResponseResult success(Boolean success){
         this.setSuccess(success);
         return this;
     }
 
-    public Result message(String message){
+    public ResponseResult message(String message){
         this.setMessage(message);
         return this;
     }
 
-    public Result code(Integer code){
+    public ResponseResult code(Integer code){
         this.setCode(code);
         return this;
     }
 
-    public Result data(String key,Object value){
+    public ResponseResult data(String key, Object value){
         this.data.put(key,value);
         return this;
     }
 
-    public Result data(Map<String,Object> map){
+    public ResponseResult data(Map<String,Object> map){
         this.setData(map);
         return this;
     }
