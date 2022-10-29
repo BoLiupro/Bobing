@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/EE308_Bobing?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
+    password: 66666666
+  session:
+    timeout: 5m
+server:
+  servlet:
+    session:
+      timeout: 5m
+mybatis-plus:
+  mapper-locations: classpath*:mappers/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.ee308.bobing.entity
+
+
+
+
+

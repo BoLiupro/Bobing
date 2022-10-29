@@ -9,6 +9,7 @@ package com.ee308.bobing.controller;
  */
 
 import com.ee308.bobing.mapper.ResultMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,7 @@ import com.ee308.bobing.service.impl.*;
 public class GameController {
     int startIndex;
 
+    @Autowired
     ResultMapper resultMapper;
 
     @GetMapping("/chooseStart")//point a starter
@@ -52,12 +54,10 @@ public class GameController {
              */
         }
         dice_result= String.valueOf(n);
-        String prize_result="";
+        String prize_result=Awards.awardsMatch1(dice_result);
         resultMapper.insert(player_id,dice_result,prize_result);
-        r.setPlayerId(player_id);r.setDiceResult(dice_result);r.setPrizeResult(prize_result);
+        r.setPlayer_id(player_id);r.setDice_result(dice_result);r.setPrize_result(prize_result);
         return r;
     }
-
-
 
 }

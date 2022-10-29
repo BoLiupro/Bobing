@@ -20,10 +20,10 @@ public class result implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer playerId;
+    private Integer player_id;
 
-    private String diceResult;
+    private String dice_result;
 
-    private String prizeResult;
+    private String prize_result;
 
 }

@@ -1,5 +1,7 @@
 package com.ee308.bobing.service.impl;
 
+import org.springframework.stereotype.Service;
+
 import java.util.Random;
 
 public class Dice {
