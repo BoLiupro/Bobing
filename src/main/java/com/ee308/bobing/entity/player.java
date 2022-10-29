@@ -30,8 +30,8 @@ public class player implements Serializable {
     important!
     player_id range from 1 ~ player_num instead of 0 ~ player_num-1
      */
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    @TableId(value = "player_id", type = IdType.AUTO)
+    private Integer player_id;
 
 
 }

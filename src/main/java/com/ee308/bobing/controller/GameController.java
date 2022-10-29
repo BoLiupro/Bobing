@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Random;
 
 import com.ee308.bobing.entity.*;
+import com.ee308.bobing.service.impl.*;
 
 @RestController
 @RequestMapping("/game")
@@ -34,6 +35,14 @@ public class GameController {
         this.startIndex=startIndex+1;
     }
 
+    @GetMapping("/throwDice")
+    public result throwDice(@RequestParam("player") int startIndex){
+        Dice dice = new Dice();
+        for(int i=1;i<=6;i++){
+            int n = dice.throwDice();
+        }
+
+    }
 
 
 

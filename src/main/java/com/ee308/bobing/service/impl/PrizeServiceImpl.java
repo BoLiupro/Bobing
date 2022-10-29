@@ -2,7 +2,7 @@ package com.ee308.bobing.service.impl;
 
 import com.ee308.bobing.entity.prize;
 import com.ee308.bobing.mapper.PrizeMapper;
-import com.ee308.bobing.service.Interface.PrizeService;
+import com.ee308.bobing.service.dao.PrizeService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

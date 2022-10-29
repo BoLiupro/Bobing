@@ -24,4 +24,6 @@ public class result implements Serializable {
 
     private Integer diceResult;
 
+    private String prizeResult;
+
 }

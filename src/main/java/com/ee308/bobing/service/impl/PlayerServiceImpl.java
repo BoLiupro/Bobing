@@ -2,7 +2,7 @@ package com.ee308.bobing.service.impl;
 
 import com.ee308.bobing.entity.player;
 import com.ee308.bobing.mapper.PlayerMapper;
-import com.ee308.bobing.service.Interface.PlayerService;
+import com.ee308.bobing.service.dao.PlayerService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 

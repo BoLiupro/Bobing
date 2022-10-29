@@ -1,8 +1,8 @@
-package com.ee308.bobing.service.Interface;
+package com.ee308.bobing.service.dao;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ee308.bobing.entity.prize;
+import com.ee308.bobing.entity.player;
 
 /**
  * <p>
@@ -12,6 +12,6 @@ import com.ee308.bobing.entity.prize;
  * @author liubo
  * @since 2022-10-29
  */
-public interface PrizeService extends IService<prize> {
+public interface PlayerService extends IService<player> {
 
 }
