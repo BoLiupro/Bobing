@@ -1,4 +1,12 @@
 package com.ee308.bobing.controller;
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author liubo
+ * @since 2022-10-29
+ */
 
 import com.ee308.bobing.entity.player;
 import com.ee308.bobing.entity.players;
@@ -26,13 +34,13 @@ public class PlayerController {
     @GetMapping("/playerSetting/{playerName}")
     public void playerSet(@PathVariable("playerName") String playerName, @RequestParam("phone") String phone){
         player p=new player();
-        p.name=playerName;
-        p.phone=phone;
+        p.setName(playerName);
+        p.setPhone(phone);
         players.playerList.add(p);
     }
     @GetMapping("/playerSetting/printPlayers")
     public void printPlayers(){
         for(player p:players.playerList)
-            System.out.println("name: "+p.name+" phone: "+p.phone );
+            System.out.println("name: "+ p.getName() +" phone: "+ p.getPhone());
     }
 }

@@ -1,4 +1,4 @@
-package com.ee308.bobing.service;
+package com.ee308.bobing.service.impl;
 
 import java.util.Random;
 

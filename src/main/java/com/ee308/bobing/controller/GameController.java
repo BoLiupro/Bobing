@@ -1,4 +1,13 @@
 package com.ee308.bobing.controller;
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author liubo
+ * @since 2022-10-29
+ */
+
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

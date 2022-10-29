@@ -1,9 +1,8 @@
 package com.ee308.bobing.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,17 +16,13 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="Player对象", description="")
-public class player implements Serializable {
+@ApiModel(value="Result对象", description="")
+public class Result implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String name;
+    private Integer playerId;
 
-    private String phone;
-
-    @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
-
+    private Integer diceResult;
 
 }

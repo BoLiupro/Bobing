@@ -39,7 +39,7 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         gc.setOutputDir(scanner("请输入你的项目路径") + "/src/main/java");
-        gc.setAuthor("xiaoge");
+        gc.setAuthor("liubo");
         //生成之后是否打开资源管理器
         gc.setOpen(false);
         //重新生成时是否覆盖文件
@@ -57,7 +57,7 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/CampusMarket?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/EE308_Bobing?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("66666666");
@@ -68,8 +68,8 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName(scanner("请输入模块名"));
-        pc.setParent("com.xiaoge");
-        pc.setController("controller");
+        pc.setParent("com.mysqlplus");
+//        pc.setController("controller");
         pc.setService("service");
         pc.setServiceImpl("service.impl");
         pc.setMapper("mapper");
