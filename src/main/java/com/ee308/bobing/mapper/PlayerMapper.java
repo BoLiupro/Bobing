@@ -4,6 +4,7 @@ package com.ee308.bobing.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ee308.bobing.entity.player;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * <p>
@@ -18,6 +19,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface PlayerMapper extends BaseMapper<player> {
 
     void insert(String player_name, String phone);
+
+    @Update("truncate table player")
     void truncateTable();
 
 

@@ -19,9 +19,11 @@ public class DataController {
     @RequestMapping("/delete")
     public void deleteAllData(){
 //        playerMapper.delete(null);
-        prizeMapper.delete(null);
-        resultMapper.delete(null);
+//        prizeMapper.delete(null);
+//        resultMapper.delete(null);
         playerMapper.truncateTable();
+        prizeMapper.truncateTable();
+        resultMapper.truncateTable();
     }
 
 }

@@ -1,8 +1,5 @@
 package com.ee308.bobing.service.impl;
 
-
-import org.springframework.stereotype.Service;
-
 public class Awards {
     public static String awardsMatch1(String dice_result){
         int []ar=new int[6];
@@ -22,6 +19,8 @@ public class Awards {
             case 1: return "xc";//秀才
             case 2: return "jr";//举人
             case 3: return "th";//探花
+            case 5: return "zy_ww";//状元_五王
+            case 6: return "zy_lph";//状元_六抔红
         }
 
         if(ar[0]*ar[1]*ar[2]*ar[3]*ar[4]*ar[5]==1)
@@ -30,11 +29,18 @@ public class Awards {
         if(ar[1]==4)
             return "js";//进士
 
-        boolean A=ar[3]>=4;
-        boolean B=ar[5]>=5;
-        boolean C=ar[0]==2&ar[3]==4;
-        if(A|B|C)
-            return "zy";//状元
+        if(ar[4]==5)
+            return "zy_wzdk";//状元_五子登科
+
+        if(ar[4]==6)
+            return "zy_lph";//状元_六抔黑
+
+        if(ar[3]==4){
+            if(ar[0]==2)
+                return "zy_zycjh";//状元_状元插金花
+            else
+                return "zy_zy";//状元_状元
+        }
 
         return "none";
     }
