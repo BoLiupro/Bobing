@@ -47,5 +47,4 @@ public class Swagger2Config implements WebMvcConfigurer {
                 .version("2.0")
                 .build();
     }
-
 }
