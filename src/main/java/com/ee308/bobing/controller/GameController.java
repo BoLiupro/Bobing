@@ -24,8 +24,6 @@ import java.util.Random;
 import com.ee308.bobing.entity.*;
 import com.ee308.bobing.service.impl.*;
 
-import javax.naming.spi.ResolveResult;
-
 @RestController
 @RequestMapping("/game")
 public class GameController {

@@ -22,16 +22,19 @@ public class player implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String player_name;
-
-    private String phone;
 
     /*
     important!
     player_id range from 1 ~ player_num instead of 0 ~ player_num-1
-     */
+    */
     @TableId(value = "player_id", type = IdType.AUTO)
     private Integer player_id;
+
+    private String player_name;
+
+    private String phone;
+
+
 
 
 }

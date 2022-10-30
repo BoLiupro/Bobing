@@ -38,6 +38,6 @@ public class PlayerController {
     public ResponseResult printPlayers(){
         QueryWrapper<player> wrapper = new QueryWrapper();
         wrapper.gt("player_id", 0);
-        return ResponseResult.ok().data("players",playerMapper.selectList(null));
+        return ResponseResult.ok().data("players",playerMapper.selectMaps(wrapper));
     }
 }
