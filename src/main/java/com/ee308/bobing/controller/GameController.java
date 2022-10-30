@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ee308.bobing.mapper.PlayerMapper;
 import com.ee308.bobing.mapper.ResultMapper;
+import com.ee308.bobing.response.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,8 @@ import java.util.Random;
 
 import com.ee308.bobing.entity.*;
 import com.ee308.bobing.service.impl.*;
+
+import javax.naming.spi.ResolveResult;
 
 @RestController
 @RequestMapping("/game")
@@ -35,19 +38,21 @@ public class GameController {
     PlayerMapper playerMapper;
 
     @GetMapping("/chooseStart")//point a starter
-    public void chooseStart(@RequestParam("startIndex") int startIndex){
+    public ResponseResult chooseStart(@RequestParam("startIndex") int startIndex){
         this.startIndex=startIndex;
+        return ResponseResult.ok().data("start_index",startIndex);
     }
 
     @GetMapping("/chooseStartByRandom")//point a starter
-    public void chooseStartByRandom(@RequestParam("startIndex") int startIndex){
+    public ResponseResult chooseStartByRandom(@RequestParam("startIndex") int startIndex){
         int num=playerMapper.selectList((Wrapper<player>) new QueryWrapper().gt("player_id",0)).size();
         Random r= new Random(num);
         this.startIndex=startIndex+1;
+        return ResponseResult.ok().data("start_index",startIndex);
     }
 
     @GetMapping("/throwDice")
-    public result throwDice(@RequestParam("player_id") int player_id){
+    public ResponseResult throwDice(@RequestParam("player_id") int player_id){
         result r= new result();
         Dice dice = new Dice();
         String dice_result;
@@ -63,7 +68,7 @@ public class GameController {
         String prize_result=Awards.awardsMatch1(dice_result);
         resultMapper.insert(player_id,dice_result,prize_result);
         r.setPlayer_id(player_id);r.setDice_result(dice_result);r.setPrize_result(prize_result);
-        return r;
+        return ResponseResult.ok().data("result",r);
     }
 
 }
