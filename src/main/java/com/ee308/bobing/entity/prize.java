@@ -1,6 +1,8 @@
 package com.ee308.bobing.entity;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,8 +24,15 @@ public class prize implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String prize;
+    @TableId(value = "prize_id", type = IdType.AUTO)
+    private Integer prize_id;
+
+    private String prize_level;
 
     private Integer quantity;
 
+    private String prize;
+
+    public prize(Integer prize_id, String prize_level, Integer quantity, String prize) {
+    }
 }

@@ -2,4 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ee308.bobing.mapper.PrizeMapper">
 
+    <insert id="insert">
+        insert into prize (prize_level,quantity,prize)
+            value (#{prize_level},#{quantity},#{prize})
+    </insert>
+
 </mapper>

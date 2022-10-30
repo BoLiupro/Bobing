@@ -18,4 +18,6 @@ public interface PrizeMapper extends BaseMapper<prize> {
 
     @Update("truncate table prize")
     void truncateTable();
+
+    void insert(String prize_level, int quantity, String prize);
 }
