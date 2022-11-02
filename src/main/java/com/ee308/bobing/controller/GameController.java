@@ -42,11 +42,11 @@ public class GameController {
     }
 
     @GetMapping("/chooseStartByRandom")//point a starter
-    public ResponseResult chooseStartByRandom(@RequestParam("startIndex") int startIndex){
+    public ResponseResult chooseStartByRandom(){
         int num=playerMapper.selectList((Wrapper<player>) new QueryWrapper().gt("player_id",0)).size();
-        Random r= new Random(num);
-        this.startIndex=startIndex+1;
-        return ResponseResult.ok().data("start_index",startIndex);
+        Random r= new Random();
+        this.startIndex=r.nextInt(num)+1;
+        return ResponseResult.ok().data("start_index",this.startIndex);
     }
 
     @GetMapping("/throwDice")

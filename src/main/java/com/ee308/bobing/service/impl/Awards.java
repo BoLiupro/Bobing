@@ -29,10 +29,10 @@ public class Awards {
         if(ar[1]==4)
             return "js";//进士
 
-        if(ar[4]==5)
+        if(ar[5]==5)
             return "zy_wzdk";//状元_五子登科
 
-        if(ar[4]==6)
+        if(ar[5]==6)
             return "zy_lph";//状元_六抔黑
 
         if(ar[3]==4){
