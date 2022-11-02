@@ -6,7 +6,7 @@ public class Awards {
         for(int x=0;x<6;x++){
             char c=dice_result.charAt(x);
             for(int y=0;y<6;y++){
-                if((c-'0')==y) ar[y]++;
+                if((c-'0')==y+1) ar[y]++;
             }
         }
         return awardsMatch2(ar);
