@@ -74,6 +74,18 @@
             <version>2.9.2</version>
         </dependency>
 
+        <!--跨域依赖-->
+        <dependency>
+            <groupId>com.thetransactioncompany</groupId>
+            <artifactId>cors-filter</artifactId>
+            <version>1.7.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.thetransactioncompany</groupId>
+            <artifactId>java-property-utils</artifactId>
+            <version>1.9</version>
+        </dependency>
+
 
     </dependencies>
 
