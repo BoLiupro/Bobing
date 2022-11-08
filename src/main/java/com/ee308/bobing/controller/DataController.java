@@ -21,17 +21,30 @@ public class DataController {
     @Autowired
     ResultMapper resultMapper;
 
-    @GetMapping("/delete")
+    @ApiOperation("reset the players and results when play a new game")
+    @GetMapping("/reset")
     public ResponseResult deleteAllData(){
 //        playerMapper.delete(null);
 //        prizeMapper.delete(null);
 //        resultMapper.delete(null);
         playerMapper.truncateTable();
-        prizeMapper.truncateTable();
+//        prizeMapper.truncateTable();
         resultMapper.truncateTable();
         Round round=new Round();
         round.setCount(0);round.setRound(0);
-        return ResponseResult.ok().message("successfully delete");
+        prizeMapper.resetPrizeNum(1,1);
+        prizeMapper.resetPrizeNum(2,1);
+        prizeMapper.resetPrizeNum(3,1);
+        prizeMapper.resetPrizeNum(4,1);
+        prizeMapper.resetPrizeNum(5,1);
+        prizeMapper.resetPrizeNum(6,1);
+        prizeMapper.resetPrizeNum(7,10);
+        prizeMapper.resetPrizeNum(8,15);
+        prizeMapper.resetPrizeNum(9,20);
+        prizeMapper.resetPrizeNum(10,25);
+        prizeMapper.resetPrizeNum(11,50);
+        return ResponseResult.ok().message("successfully reset");
     }
+
 
 }

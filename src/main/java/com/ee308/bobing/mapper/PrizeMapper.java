@@ -5,6 +5,8 @@ import com.ee308.bobing.entity.prize;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 /**
  * <p>
  *  Mapper 接口
@@ -20,4 +22,7 @@ public interface PrizeMapper extends BaseMapper<prize> {
     void truncateTable();
 
     void insert(String prize_level, int quantity, String prize);
+
+    void resetPrizeNum(int prize_id,int quantity);
+
 }

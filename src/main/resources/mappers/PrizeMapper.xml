@@ -7,4 +7,10 @@
             value (#{prize_level},#{quantity},#{prize})
     </insert>
 
+    <update id="resetPrizeNum">
+        update prize set
+            quantity=#{quantity},
+        where prize_id=#{prize_id}
+    </update>
+
 </mapper>

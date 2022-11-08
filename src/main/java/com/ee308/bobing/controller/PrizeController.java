@@ -28,6 +28,7 @@ public class PrizeController {
     @Autowired
     PrizeMapper prizeMapper;
 
+    @ApiOperation("setting the prize(like content&quantity) before game start")
     @GetMapping("/setting")
     public ResponseResult setting(@RequestParam("prize_level") String prize_level,
                                   @RequestParam("quantity") int quantity,
@@ -39,6 +40,7 @@ public class PrizeController {
     /*
     enquire prizes by prize_level .ie ex,zy_zy......
      */
+    @ApiOperation("search prize by prize_level(String)")
     @GetMapping("/search")
     public ResponseResult search(@RequestParam("prize_level") String prize_level){
         QueryWrapper<prize> wrapper = new QueryWrapper();
@@ -47,6 +49,7 @@ public class PrizeController {
     }
 
 
+    @ApiOperation("return all the infomation of prizes")
     @GetMapping("/print")
     public ResponseResult print(){
         QueryWrapper<prize> wrapper = new QueryWrapper();
@@ -54,6 +57,7 @@ public class PrizeController {
         return ResponseResult.ok().data("prize",prizeMapper.selectMaps(wrapper));
     }
 
+    @ApiOperation("when a award is given, the quantity should minus 1")
     @GetMapping("/minus")
     public ResponseResult minus(@RequestParam("prize_level") String prize_level){
         QueryWrapper<prize> wrapper = new QueryWrapper();
