@@ -10,6 +10,7 @@ package com.ee308.bobing.controller;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.api.R;
 import com.ee308.bobing.mapper.PlayerMapper;
 import com.ee308.bobing.mapper.ResultMapper;
 import com.ee308.bobing.response.ResponseResult;
@@ -28,6 +29,8 @@ import com.ee308.bobing.service.impl.*;
 @RequestMapping("/game")
 public class GameController {
     int startIndex;
+
+    Round round =new Round();
 
     @Autowired
     ResultMapper resultMapper;
@@ -66,7 +69,12 @@ public class GameController {
         String prize_result=Awards.awardsMatch1(dice_result);
         resultMapper.insert(player_id,dice_result,prize_result);
         r.setPlayer_id(player_id);r.setDice_result(dice_result);r.setPrize_result(prize_result);
-        return ResponseResult.ok().data("result",r);
+        int num=playerMapper.selectList((Wrapper<player>) new QueryWrapper().gt("player_id",0)).size();
+        return ResponseResult.ok().
+                data("player",playerMapper.selectMaps((Wrapper<player>) new QueryWrapper().eq("player_id",player_id)))
+                .data("round",round.getRound(num)).data("result",r);
     }
+
+
 
 }
