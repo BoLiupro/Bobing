@@ -20,20 +20,20 @@ public class Awards {
             case 2: return "jr";//举人
             case 3: return "th";//探花
             case 5: return "zy_ww";//状元_五王
-            case 6: return "zy_lph";//状元_六抔红
+            case 6: return "zy_lpRed";//状元_六抔红
         }
 
         if(ar[0]*ar[1]*ar[2]*ar[3]*ar[4]*ar[5]==1)
             return "by";//榜眼
 
-        if(ar[1]==4)
+        if(ar[0]==4|ar[1]==4|ar[2]==4|ar[3]==4|ar[4]==4|ar[5]==4)
             return "js";//进士
 
         if(ar[5]==5)
             return "zy_wzdk";//状元_五子登科
 
         if(ar[5]==6)
-            return "zy_lph";//状元_六抔黑
+            return "zy_lpBlack";//状元_六抔黑
 
         if(ar[3]==4){
             if(ar[0]==2)
