@@ -1,11 +1,10 @@
 package com.ee308.bobing.controller;
 
-import com.baomidou.mybatisplus.extension.api.R;
 import com.ee308.bobing.mapper.PlayerMapper;
 import com.ee308.bobing.mapper.PrizeMapper;
 import com.ee308.bobing.mapper.ResultMapper;
 import com.ee308.bobing.response.ResponseResult;
-import com.ee308.bobing.service.impl.Round;
+import com.ee308.bobing.service.impl.PlayerServiceImpl;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,19 +29,19 @@ public class DataController {
         playerMapper.truncateTable();
 //        prizeMapper.truncateTable();
         resultMapper.truncateTable();
-        Round round=new Round();
-        round.setCount(0);round.setRound(0);
+        PlayerServiceImpl playerService =new PlayerServiceImpl();
+        playerService.setCount(0);playerService.setRound(0);
         prizeMapper.resetPrizeNum(1,1);
         prizeMapper.resetPrizeNum(2,1);
         prizeMapper.resetPrizeNum(3,1);
         prizeMapper.resetPrizeNum(4,1);
         prizeMapper.resetPrizeNum(5,1);
         prizeMapper.resetPrizeNum(6,1);
-        prizeMapper.resetPrizeNum(7,10);
-        prizeMapper.resetPrizeNum(8,15);
-        prizeMapper.resetPrizeNum(9,20);
-        prizeMapper.resetPrizeNum(10,25);
-        prizeMapper.resetPrizeNum(11,50);
+        prizeMapper.resetPrizeNum(7,2);
+        prizeMapper.resetPrizeNum(8,4);
+        prizeMapper.resetPrizeNum(9,8);
+        prizeMapper.resetPrizeNum(10,16);
+        prizeMapper.resetPrizeNum(11,32);//total 11
         return ResponseResult.ok().message("successfully reset");
     }
 

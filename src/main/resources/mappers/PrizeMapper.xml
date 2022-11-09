@@ -9,7 +9,7 @@
 
     <update id="resetPrizeNum">
         update prize set
-            quantity=#{quantity},
+            quantity=#{quantity}
         where prize_id=#{prize_id}
     </update>
 

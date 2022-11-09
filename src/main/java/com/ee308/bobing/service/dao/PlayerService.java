@@ -3,6 +3,7 @@ package com.ee308.bobing.service.dao;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ee308.bobing.entity.player;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>

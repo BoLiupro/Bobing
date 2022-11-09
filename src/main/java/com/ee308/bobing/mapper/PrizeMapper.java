@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ee308.bobing.entity.prize;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
 
 /**
  * <p>
@@ -16,6 +16,7 @@ import java.util.List;
  * @since 2022-10-29
  */
 @Mapper
+@Repository
 public interface PrizeMapper extends BaseMapper<prize> {
 
     @Update("truncate table prize")

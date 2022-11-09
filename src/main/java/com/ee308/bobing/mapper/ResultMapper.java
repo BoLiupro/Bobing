@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ee308.bobing.entity.result;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -14,6 +15,7 @@ import org.apache.ibatis.annotations.Update;
  * @since 2022-10-29
  */
 @Mapper
+@Repository
 public interface ResultMapper extends BaseMapper<result> {
 
     void insert(int player_id, String dice_result, String prize_result);
