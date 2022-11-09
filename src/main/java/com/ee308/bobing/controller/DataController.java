@@ -43,6 +43,7 @@ public class DataController {
         prizeMapper.resetPrizeNum(10,16);
         prizeMapper.resetPrizeNum(11,32);
         //total 11
+        playerService.setRoundNum(20);
         return ResponseResult.ok().message("successfully reset");
     }
 }

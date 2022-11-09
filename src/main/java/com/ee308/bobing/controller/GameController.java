@@ -40,6 +40,14 @@ public class GameController {
     @Autowired
     PrizeMapper prizeMapper;
 
+
+    @GetMapping("/setRound")
+    public ResponseResult setRound(@RequestParam("roundNUm") int roundNum){
+        PlayerServiceImpl playerService =new PlayerServiceImpl();
+        playerService.setRoundNum(roundNum);
+        return ResponseResult.ok().message("successfully set roundNum "+roundNum);
+    }
+
     @ApiOperation("choose the person to start")
     @GetMapping("/chooseStart")//point a starter
     public ResponseResult chooseStart(@RequestParam("startIndex") int startIndex){
