@@ -13,4 +13,10 @@
         where prize_id=#{prize_id}
     </update>
 
+    <update id="updatePrize">
+        update prize set
+            quantity=#{quantity},prize=#{prize}
+        where prize_level=#{prize_level}
+    </update>
+
 </mapper>

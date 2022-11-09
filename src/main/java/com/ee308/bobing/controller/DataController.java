@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@ApiOperation("")
+@ApiOperation("reset player and result dataset to none")
 public class DataController {
     @Autowired
     PlayerMapper playerMapper;
@@ -41,9 +41,8 @@ public class DataController {
         prizeMapper.resetPrizeNum(8,4);
         prizeMapper.resetPrizeNum(9,8);
         prizeMapper.resetPrizeNum(10,16);
-        prizeMapper.resetPrizeNum(11,32);//total 11
+        prizeMapper.resetPrizeNum(11,32);
+        //total 11
         return ResponseResult.ok().message("successfully reset");
     }
-
-
 }

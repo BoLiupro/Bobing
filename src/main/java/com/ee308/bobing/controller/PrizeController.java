@@ -33,7 +33,8 @@ public class PrizeController {
     public ResponseResult setting(@RequestParam("prize_level") String prize_level,
                                   @RequestParam("quantity") int quantity,
                                   @RequestParam("prize") String prize){
-        prizeMapper.insert(prize_level,quantity,prize);
+
+        prizeMapper.updatePrize(prize_level,quantity,prize);
         return ResponseResult.ok().message("successfully add");
     }
 
