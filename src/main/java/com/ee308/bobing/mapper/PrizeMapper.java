@@ -26,4 +26,5 @@ public interface PrizeMapper extends BaseMapper<prize> {
 
     void resetPrizeNum(int prize_id,int quantity);
 
+    void updatePrize(String prize_level, int quantity, String prize);
 }

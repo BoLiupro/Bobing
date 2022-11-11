@@ -33,6 +33,7 @@ public class PlayerServiceImpl extends ServiceImpl<PlayerMapper, player> impleme
 
     static int count=0;
     static int round=0;
+    static int roundNum=20;
 
     @Autowired
     PlayerMapper playerMapper;
@@ -105,12 +106,11 @@ public class PlayerServiceImpl extends ServiceImpl<PlayerMapper, player> impleme
             minus(prize_result);
             r.setPrize_result(prize_result);
         }
-        return ResponseResult.ok().data("round",getRound()).
+        return ResponseResult.ok().data("round",getRound()).data("ifEnd",playerService.checkRound()).
         data("player",playerService.playerMapper.selectMaps((Wrapper<player>) new QueryWrapper().eq("player_id",player_id))).
         data("result",r).
         data("prize_quantity",new PrizeServiceImpl().getPrizeNum()).message(message);
     }
-
 
     public  void setCount(int count) {
         this.count = count;
@@ -130,5 +130,12 @@ public class PlayerServiceImpl extends ServiceImpl<PlayerMapper, player> impleme
         return round;
     }
 
+    public void setRoundNum(int roundNum){
+        this.roundNum=roundNum;
+    }
 
+    public boolean checkRound(){
+        if(round>roundNum) return true;
+        else return false;
+    }
 }
