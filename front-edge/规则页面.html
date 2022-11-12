@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>规则页面</title>
+</head>
+<style>
+     @font-face{
+            font-family:MingLiU-ExtB;
+            src:url(PangMenZhengDaoCuShuTi-2.ttf)
+        }
+    body{
+            background-size: cover;
+            background-image: url(规则.png);
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+        .SG{
+            font-family:MingLiU-ExtB;
+            font-size: 48px;
+            position: relative;
+            left: 765px;
+            top: 900px;
+            width: 250px;
+            height: 80px;
+            opacity: 1;
+            border-radius: 30px;
+            background: rgba(245, 207, 17, 1);
+            border: 1px solid rgba(0, 0, 0, 1);            
+        }
+</style>
+<body>
+    <input class="SG" type="button" value="我已知晓" onclick="jump()" />
+</body>
+<script type="text/javascript"> 
+    function jump() { 
+        window.location.assign('创建玩家界面.html');
+    } 
+</script> 
+</html>

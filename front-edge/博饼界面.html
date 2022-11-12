@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博饼页面</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+         @font-face{
+            font-family:MingLiU-ExtB;
+            src:url(PangMenZhengDaoCuShuTi-2.ttf)
+        }
+        body{
+            background-size: cover;
+            background-image: url(background3.png);
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+        .WJ{
+            line-height: 150px;
+            font-family:MingLiU-ExtB;
+            font-size: 55px;
+             position: absolute; 
+            left: 755px; 
+        }
+        .HH{
+            font-family:MingLiU-ExtB;
+            font-size: 55px;
+            position: absolute;
+            left: 825px;
+            line-height: 300px;
+        }
+        .dice1{
+            width: 170px;
+            height: 170px;      
+            position: absolute;
+            top: 280px;
+            left: 540px;
+            background-image: url(骰子1.png);
+        }
+        .dice2{
+            width: 170px;
+            height: 170px; 
+            position: absolute;
+            top: 280px;
+            left: 820px;
+            background-image: url(骰子2.png);
+        }
+        .dice3{
+            width: 170px;
+            height: 170px; 
+            position: absolute;
+            top: 280px;
+            left: 1100px;
+            background-image: url(骰子3.png);
+        }
+        .dice4{
+            width: 170px;
+            height: 170px; 
+            position: absolute;
+            top: 530px;
+            left: 540px;
+            background-image: url(骰子4.png);
+        }
+        .dice5{
+            width: 170px;
+            height: 170px; 
+            position: absolute;
+            top: 530px;
+            left: 820px;
+            background-image: url(骰子5.png);
+        }
+        .dice6{
+            width: 170px;
+            height: 170px; 
+            position: absolute;
+            top: 530px;
+            left: 1100px;
+            background-image: url(骰子6.png);
+        }
+        .PT{
+            font-family:MingLiU-ExtB;
+            position: absolute;
+            left: 1572px;
+            top: 144px;
+            width: 348px;
+            height: 760px;
+            border-radius: 20px;
+            background: #f2dfbf;
+
+        }
+        .TS{
+            border-radius: 20px;
+            position: absolute;
+            width: 745px;
+            height: 805px;
+            background: rgba(242, 223, 191, 1);
+            left: 525px;
+            top: 150px;
+            visibility: hidden;
+        }
+        .RO{
+            font-family:MingLiU-ExtB;
+            font-size: 60px;
+            text-align: center;
+            line-height: 75px;
+            position: absolute;
+            left: 780px;
+            top: 800px;
+            width: 250px;
+            height: 80px;
+            border-radius: 30px;
+            background: rgba(245, 207, 17, 1);
+            border: 1px solid rgba(0, 0, 0, 1);            
+        }
+        .JX{
+            font-family:MingLiU-ExtB;
+            font-size: 60px;
+            text-align: center;
+            line-height: 75px;
+            position: absolute;
+            left: 780px;
+            top: 850px;
+            width: 250px;
+            height: 80px;
+            border-radius: 30px;
+            background: rgba(245, 207, 17, 1);
+            border: 1px solid rgba(0, 0, 0, 1);
+            visibility: hidden;
+        }
+        .JS{
+            font-family:MingLiU-ExtB;
+            font-size: 60px;
+            text-align: center;
+            line-height: 75px;
+            position: absolute;
+            left: 780px;
+            top: 850px;
+            width: 250px;
+            height: 80px;
+            border-radius: 30px;
+            background: rgba(245, 207, 17, 1);
+            border: 1px solid rgba(0, 0, 0, 1);
+            visibility: hidden;
+        }
+        .LB{
+            text-align: center;
+            position: absolute;
+            font-family:MingLiU-ExtB;
+            left: 1px;
+            top: 100px;
+            width: 287px;
+            height: 800px;
+            opacity: 1;
+            border-radius: 20px;
+            background: #faec87;
+        }
+        .WJL{
+            font-family:MingLiU-ExtB;
+            height: 60;
+            visibility: hidden;
+            font-size: 35px;
+        }
+ 
+    </style>
+</head>
+<body>
+    <div class="WJ" id="W">准备开始</div>
+    <div class="HH" id="H">回合1</div>
+    <div class="LB" id="lb">
+        <h1 style="font-size: 60px;text-align: center;line-height: 60px;">玩家列表</h1>
+     <div class="WJL"id="wj1" style="background: rgba(250, 236, 135, 1);"></div>
+     <div class="WJL"id="wj2" style="background: rgba(250, 236, 135, 1);"></div>
+     <div class="WJL"id="wj3" style="background: rgba(250, 236, 135, 1);"></div>
+     <div class="WJL"id="wj4" style="background: rgba(250, 236, 135, 1);"></div>
+     <div class="WJL"id="wj5" style="background: rgba(250, 236, 135, 1);"></div>
+     <div class="WJL"id="wj6" style="background: rgba(250, 236, 135, 1);"></div>
+     <div class="WJL"id="wj7" style="background: rgba(250, 236, 135, 1);"></div>
+     <div class="WJL"id="wj8" style="background: rgba(250, 236, 135, 1);"></div>
+     <div class="WJL"id="wj9" style="background: rgba(250, 236, 135, 1);"></div>
+     <div class="WJL"id="wj10" style="background: rgba(250, 236, 135, 1);"></div>
+     <div class="WJL"id="wj11" style="background: rgba(250, 236, 135, 1);"></div>
+     <div class="WJL"id="wj12" style="background: rgba(250, 236, 135, 1);"></div>
+    </div>
+    <div class="dice1" id="di1">
+    </div>
+    <div class="dice2" id="di2">
+    </div>
+    <div class="dice3" id="di3">
+    </div>
+    <div class="dice4" id="di4">
+    </div>
+    <div class="dice5" id="di5">
+    </div>
+    <div class="dice6" id="di6">
+    </div>
+    <div class="PT">
+<h1 style="font-size: 60px;text-align: center;line-height: 60px;">奖品剩余</h1>
+<h1 id="yixiu" style="font-size: 40px;text-align: left;line-height: 60px;">一秀</h1>
+<h1 id="erju"  style="font-size: 40px;text-align: left;line-height: 60px;">二举</h1>
+<h1 id="sijin"  style="font-size: 40px;text-align: left;line-height: 60px;">四进</h1>
+<h1 id="sanhong" style="font-size: 40px;text-align: left;line-height: 60px;">三红</h1>
+<h1 id="duitang" style="font-size: 40px;text-align: left;line-height: 60px;">对堂</h1>
+<h1 id="zhuangyuan" style="font-size: 50px;text-align: left;line-height: 60px;color: red;">状元</h1>
+    </div>
+    <div class="TS" id="ts"></div>
+    <input class="JS" id="js" type="button" value="结束"  onclick="jump()"/>
+    <input class="JX" id="jx" type="button" value="继续" onclick="closeTS()"/>
+    <input class="RO" id="ro" type="button" value="扔" onclick="roll()"/>
+   
+</body>
+<script type="text/javascript">
+    var player_num;
+    var player_names = new Array(12);
+     $(function () {
+        $.ajax({
+	        url: "https://b3016z3799.imdo.co/player/Num",
+	        type: "GET",
+	        success: function (result) {
+                player_num = result.data.player_num;
+                var wjlb = document.querySelectorAll("div.LB > div");
+                for (let i = 0; i < player_num; i++) {
+                    wjlb[i].style.visibility="visible";
+                }
+                wjlb[0].style.background = "#f2dfbf";
+	        } 
+        })
+
+        $.ajax({
+            url: "https://b3016z3799.imdo.co/prize/print",
+	        type: "GET",
+            success: function (result) {
+                var yx = document.getElementById('yixiu')
+                var ej = document.getElementById('erju')
+                var sj = document.getElementById('sijin')
+                var sh = document.getElementById('sanhong')
+                var dt = document.getElementById('duitang')
+                var zy = document.getElementById('zhuangyuan')
+                yx.innerHTML="一秀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+result.data.prize[10].quantity;
+                ej.innerHTML="二举&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+result.data.prize[9].quantity;
+                sj.innerHTML="四进&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+result.data.prize[8].quantity;
+                sh.innerHTML="三红&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+result.data.prize[7].quantity;
+                dt.innerHTML="对堂&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+result.data.prize[6].quantity;
+                zy.innerHTML="状元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+result.data.prize[5].quantity;
+            }
+        })
+
+});
+$(function () {
+    $.ajax({
+            url: "https://b3016z3799.imdo.co/player/print",
+	        type: "GET",
+            success: function (result) {
+                var wjlb = document.querySelectorAll("div.LB > div");
+                for (let i = 0; i < player_num; i++) {
+                    wjlb[i].innerHTML=result.data.players[i].player_name+"&nbsp;请掷骰";
+                }
+            }
+        })
+})
+
+
+    var player_id=1;
+
+    function roll(){  
+        const btn = document.getElementById('ro');
+        const bjx = document.getElementById('jx');
+        const bjs = document.getElementById('js');
+        var dic1 = document.getElementById('di1');
+        var dic2 = document.getElementById('di2');
+        var dic3 = document.getElementById('di3');
+        var dic4 = document.getElementById('di4');
+        var dic5 = document.getElementById('di5');
+        var dic6 = document.getElementById('di6');
+        var dic = [dic1,dic2,dic3,dic4,dic5,dic6]; 
+    //    btn.onclick = function(){
+        // wj.innerHTML=player_names[player_id-1];
+        var wj = document.getElementById('W')
+        var hh = document.getElementById('H')
+        var yx = document.getElementById('yixiu')
+        var ej = document.getElementById('erju')
+        var sj = document.getElementById('sijin')
+        var sh = document.getElementById('sanhong')
+        var dt = document.getElementById('duitang')
+        var zy = document.getElementById('zhuangyuan')
+        var pr = document.getElementById('ts')
+        
+        
+        
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = 'json';
+        xhr.open('GET','https://b3016z3799.imdo.co/game/throwDice?player_id='+player_id);
+        xhr.send();
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4){
+                if(xhr.status>=200&&xhr.status<300){
+
+                    var wjlb = document.querySelectorAll("div.LB > div");
+
+                    wjlb[player_id-1].style.background = "#f2dfbf";
+
+                    yx.innerHTML="一秀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+xhr.response.data.prize_quantity[10];
+                    ej.innerHTML="二举&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+xhr.response.data.prize_quantity[9];
+                    sj.innerHTML="四进&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+xhr.response.data.prize_quantity[8];
+                    sh.innerHTML="三红&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+xhr.response.data.prize_quantity[7];
+                    dt.innerHTML="对堂&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+xhr.response.data.prize_quantity[6];
+                    var z=1;
+                    for (let i = 5; i>=0; i--) {
+                      if (xhr.response.data.prize_quantity[i]==0) {
+                        z=0;
+                      }  
+                    }
+                    zy.innerHTML="状元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+z;
+
+            btn.style.visibility ="hidden";
+
+            player_id++;
+            wj.innerHTML=xhr.response.data.player[0].player_name+"的结果";
+             var r=xhr.response.data.round;
+              hh.innerHTML = "回合"+ r;
+                if (player_id>player_num) 
+                {
+                    player_id=1;
+                }
+                var d1=parseInt(xhr.response.data.result.dice_result/100000);
+                var d2=parseInt((xhr.response.data.result.dice_result/10000)%10);
+                var d3=parseInt(((xhr.response.data.result.dice_result/1000)%100)%10);
+                var d4=parseInt((xhr.response.data.result.dice_result/100)%10);
+                var d5=parseInt(((xhr.response.data.result.dice_result%100)/10));
+                var d6=parseInt((xhr.response.data.result.dice_result%10));
+                var d =[d1,d2,d3,d4,d5,d6];
+                for (let i = 0; i < 6; i++) {
+                    if (d[i]==1) {
+                        dic[i].style.backgroundImage = "url('骰子1.png')";
+                }
+               else if (d[i]==2) {
+                        dic[i].style.backgroundImage="url('骰子2.png')";
+                }
+               else if (d[i]==3) {
+                        dic[i].style.backgroundImage="url('骰子3.png')";
+                }
+               else if (d[i]==4) {
+                        dic[i].style.backgroundImage="url('骰子4.png')";
+                }
+               else if (d[i]==5) {
+                        dic[i].style.backgroundImage="url('骰子5.png')";
+                }
+               else if (d[i]==6) {
+                        dic[i].style.backgroundImage="url('骰子6.png')";
+                }
+                }
+                var p = xhr.response.data.result.prize_result;
+
+                if (p=="xc") {
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(一秀.png)";
+                }
+                else if (p=="jr"){
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(二举.png)";
+                }
+                else if (p=="js"){
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(四进.png)";
+                }
+                else if (p=="th"){
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(三红.png)";
+                }
+                else if (p=="by"){
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(对堂.png)";
+                }
+                else if (p=="zy_zy"){
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(状元.png)";
+                    zy.innerHTML="状元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+0;
+                }
+                else if (p=="zy_wzdk"){
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(五子登科.png)";
+                    zy.innerHTML="状元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+0;
+                }
+                else if (p=="zy_ww"){
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(五红.png)";
+                    zy.innerHTML="状元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+0;
+                }
+                else if (p=="zy_lpBlack"){
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(黑六勃.png)";
+                    zy.innerHTML="状元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+0;
+                }
+                else if (p=="zy_lpRed"){
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(红六勃.png)";
+                    zy.innerHTML="状元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+0;
+                }
+                else if (p=="zy_zycjh"){
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(状元插金花.png)";
+                    zy.innerHTML="状元&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*"+0;
+                }
+                else{
+                    bjx.style.visibility="visible"
+                    pr.style.visibility= "visible"
+                    pr.style.backgroundImage="url(无.png)";
+                }
+                if (xhr.response.data.ifEnd==true) {
+                        bjx.style.visibility="hidden";
+                        bjs.style.visibility="visible";
+                    }   
+
+                }
+            }
+        }
+    // }
+}
+function closeTS(){
+    var pr = document.getElementById('ts');
+    const btn = document.getElementById('ro');
+    const bjx = document.getElementById('jx');
+    var wjlb = document.querySelectorAll("div.LB > div");
+    pr.style.visibility="hidden";
+    bjx.style.visibility="hidden"
+    btn.style.visibility="visible"
+ if (player_id==1) {
+    wjlb[player_num-1].style.background = "#faec87";
+    wjlb[0].style.background = "#f2dfbf"; 
+ }
+   else if (player_id<=player_num) {
+        console.log(player_id);
+        wjlb[player_id-2].style.background = "#faec87";
+    wjlb[player_id-1].style.background = "#f2dfbf";
+    }
+   
+}
+ function jump() { 
+         window.location.assign('结算页面.html');
+     } 
+</script>
+</html>

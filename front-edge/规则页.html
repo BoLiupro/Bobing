@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bobing</title>
+<style>
+   body{
+    background-size: cover;
+    background-image: url(https://img.js.design/assets/img/635cefd64d322526d35e79a0.jpeg#14984d276b356e392c6c4a5607ad7a00);
+    background-repeat: no-repeat;
+    background-position: center top;
+   }
+   .DaBiaoTi{
+    position: absolute;
+    font-size: 72px;
+    font-weight: 400;
+    line-height: 72px;
+    text-align: center;
+    left: 700px;
+    top: 119px;
+    font-family: 'Times New Roman', Times, serif;
+   }
+   .PN{
+    position: absolute;
+    left: 862px;
+    top: 609px;
+    width: 234px;
+    height: 60px;
+    border-radius: 4px;
+    border: 1px solid rgb(255, 255, 255);      
+   }
+   #OK{
+    position: absolute;
+    left: 1127px;
+    top: 629px;
+    width: 52px;
+    height: 21px;
+    opacity: 1;
+    border-radius: 20px;
+    background: rgb(255, 232, 127);
+   }
+   .SG{
+    position: absolute;
+    left: 847px;
+    top: 767px;
+    width: 269px;
+    height: 103px;
+    opacity: 1;
+    border-radius: 20px;
+    border: 2px solid rgb(229, 229, 229);            
+   }
+   .GZ{
+    position: absolute;
+    left: 1149px;
+    top: 789px;
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+    border-radius: 30px;
+    background: rgb(246, 226, 193);
+    border: 2px solid rgb(229, 229, 229);            
+   }
+   #result{
+    width: 200px;
+    height: 200px;
+    border: solid 1px #90b;
+   }
+</style>
+
+<body>
+    <div class="DaBiaoTi">中秋博饼<br>Moonckae gambling
+    </div>
+    <form action="">
+        <input class="PN" type="text" value="Player name" >
+        <button class="SG"type="submit" >Start Gmae</button>
+        <button class="GZ"type="button" >?</button>
+    </form>
+    <div id="result"></div>
+    <button id="OK">OK</button>
+    <script>
+      const btn = document.getElementById('OK');
+      const result = document.getElementById("result");
+       btn.onclick = function(){
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = 'json';
+        xhr.open('GET','https://b3016z3799.imdo.co/game/throwDice?player_id=');
+        xhr.send();
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4){
+                if(xhr.status>=200&&xhr.status<300){
+            //   console.log(xhr.response);
+            result.innerHTML =xhr.response;
+                }
+            }
+        }
+    }
+    </script>
+</body>
+
+
+
+
+
+</html>
