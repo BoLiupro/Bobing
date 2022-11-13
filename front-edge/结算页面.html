@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结算页面</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<style> 
+@font-face{
+            font-family:MingLiU-ExtB;
+            src:url(PangMenZhengDaoCuShuTi-2.ttf)
+        }
+body{   
+        background-size: cover;
+        background-image: url(结算页面.png);
+        background-repeat: no-repeat;
+        background-position: center top;
+}
+.JS{
+    font-size: 48px;
+    font-family:MingLiU-ExtB;
+    position: absolute;
+    left: 816.5px;
+    top: 949px;
+    width: 250px;
+    height: 80px;
+    opacity: 1;
+    border-radius: 30px;
+    background: rgba(245, 207, 17, 1);
+    border: 1px solid rgba(0, 0, 0, 1);            
+}
+.JSLB{
+    position: absolute;
+    left: 160px;
+top: 140px;
+width: 1600px;
+height: 800px;
+opacity: 1;
+border-radius: 20px;
+background: rgba(242, 223, 191, 1);
+
+}
+.JSL{
+visibility: hidden;
+font-family:MingLiU-ExtB;
+font-size: 35px;
+text-align: center;
+}
+</style>
+<body>
+    <div class="JSLB" id="jslb">
+     <div class="JSL"id="wj1"></div>
+     <div class="JSL"id="wj2"></div>
+     <div class="JSL"id="wj3"></div>
+     <div class="JSL"id="wj4"></div>
+     <div class="JSL"id="wj5"></div>
+     <div class="JSL"id="wj6"></div>
+     <div class="JSL"id="wj7"></div>
+     <div class="JSL"id="wj8"></div>
+     <div class="JSL"id="wj9"></div>
+     <div class="JSL"id="wj10"></div>
+     <div class="JSL"id="wj11"></div>
+     <div class="JSL"id="wj12"></div>
+    </div>
+    <input class="JS" type="button" value="再玩一次" onclick="jump()" />
+</body>
+<script>
+    var player_num;
+    var jslb = document.querySelectorAll("div.JSLB > div");
+     $(function () {
+        $.ajax({
+	        url: "https://b3016z3799.imdo.co/player/Num",
+	        type: "GET",
+	        success: function (result) {
+                console.log(1);
+                player_num = result.data.player_num;
+                for (let i = 0; i < player_num; i++) {
+                    jslb[i].style.visibility="visible";
+                }
+	        } 
+        })
+    })
+    $(function(){
+        $.ajax({
+	        url: "https://b3016z3799.imdo.co/result/getAll",
+	        type: "GET",
+            success: function (result){
+                console.log(2);
+            for (let i = 0; i < player_num; i++) {
+           jslb[i].innerHTML=result.data.all[i].player.player_name+": 一秀*"+result.data.all[i].prize.xc+": 二举*"+result.data.all[i].prize.jr+": 四进*"+result.data.all[i].prize.js+": 三红*"+result.data.all[i].prize.th+": 对堂*"+result.data.all[i].prize.by;
+           if (result.data.all[i].prize.zy_lpBlack==1) {
+            jslb[i].innerHTML+=" 黑六勃";
+           }
+           if(result.data.all[i].prize.zy_lpRed==1){
+            jslb[i].innerHTML+=" 红六勃";
+           }
+           if(result.data.all[i].prize.ww==1){
+            jslb[i].innerHTML+=" 五红";
+           }
+           if(result.data.all[i].prize.wzdk==1){
+            jslb[i].innerHTML+=" 五子登科";
+           }
+           if(result.data.all[i].prize.zy==1){
+            jslb[i].innerHTML+=" 状元";
+           }
+           if(result.data.all[i].prize.zy_zycjh==1){
+            jslb[i].innerHTML+=" 状元插金花";
+           }
+            }
+            }
+        })
+    })
+    function jump(){
+        $.ajax({
+	    url: "https://b3016z3799.imdo.co/reset",
+	    type: "GET",
+    })
+        window.location.assign('首页.html');
+    }
+</script>
+</html>
